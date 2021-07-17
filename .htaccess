@@ -1,0 +1,21 @@
+RewriteEngine On
+RewriteBase /nouuti_web/
+
+Options +FollowSymLinks
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteRule ^admin$ admin.php
+RewriteRule ^admin_beranda$ admin.php?views_admin=admin_beranda
+
+RewriteRule ^data_operator$ admin.php?views_admin=data_operator
+
+RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views_admin=$1
+
+# X-XSS-Protection
+<IfModule mod_headers.c>
+	Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+Options All -Indexes
