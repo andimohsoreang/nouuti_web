@@ -22,6 +22,18 @@ include 'app/controller/admin/post_kecamatan.php';
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+            <?php
+                    if (isset($_SESSION['success'])) {
+                ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <span class="fas fa-check fe-16 mr-2"></span> <?= flash('success'); ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                <?php
+                    }
+                ?>
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title mt-1">Daftar Kecamatan</h3>
