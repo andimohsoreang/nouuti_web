@@ -1,5 +1,5 @@
 <?php
-    include 'app/controller/admin/post.php';
+    include 'app/controller/admin/post_operator.php';
 ?>
 
 <section class="content-header">
@@ -22,6 +22,18 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
+                <?php
+                    if (isset($_SESSION['success'])) {
+                ?>
+                        <div class="alert alert-success alert-dismissible fade show" role="alert">
+                            <span class="fas fa-check fe-16 mr-2"></span> <?= flash('success'); ?>
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                <?php
+                    }
+                ?>
                 <div class="card">
                     <div class="card-header">
                         <h3 class="card-title mt-1">Daftar Operator</h3>
@@ -32,14 +44,17 @@
                     <div class="card-body">
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
-                                <tr>
+                                <tr class="text-sm">
                                     <th>No</th>
                                     <th>Nama</th>
+                                    <th>Username</th>
+                                    <th>Penugasan</th>
+                                    <th>Kecamatan</th>
                                     <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
-
+                                <?php tampil_data($mysqli); ?>
                             </tbody>
                         </table>
                     </div>
@@ -58,8 +73,8 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
-                <form action="" method="POST" enctype="multipart/form-data">                
+            <form action="" method="POST">                
+                <div class="modal-body">
                     <div class="form-group">
                         <label for="nama">Nama</label>
                         <input type="text" id="nama" name="nama" placeholder="Nama" class="form-control">
@@ -89,12 +104,12 @@
                             </div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="modal-footer justify-content-between">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
-            </div>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
         </div>
         <!-- /.modal-content -->
     </div>
