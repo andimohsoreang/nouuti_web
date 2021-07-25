@@ -41,6 +41,12 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
+                            <a href="<?= $base_url; ?>data_provinsi" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Provinsi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="<?= $base_url; ?>data_kecamatan" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Kecamatan</p>
