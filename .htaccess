@@ -11,6 +11,8 @@ RewriteRule ^admin_beranda$ admin.php?views_admin=admin_beranda
 
 RewriteRule ^data_kecamatan$ admin.php?views_admin=data_kecamatan
 RewriteRule ^data_operator$ admin.php?views_admin=data_operator
+RewriteRule ^data_pendaftar_kecamatan$ admin.php?views_admin=data_pendaftar_kecamatan
+RewriteRule ^data_pendaftar_umum$ admin.php?views_admin=data_pendaftar_umum
 
 RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views_admin=$1
 

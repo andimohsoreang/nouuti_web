@@ -1,8 +1,8 @@
 <?php
 
-function simpan($nama, $username, $encrypt_pass, $penugasan, $kecamatan, $mysqli)
+function simpan($nama, $username, $encrypt_pass, $penugasan, $kecamatan, $created_at, $updated_at, $mysqli)
 {
-    $query = $mysqli->prepare("INSERT INTO tb_operator (nama_operator,username,pass,akses,id_kecamatan) VALUES ('$nama', '$username', '$encrypt_pass', '$penugasan', '$kecamatan')");
+    $query = $mysqli->prepare("INSERT INTO tb_operator (nama_operator,username,pass,akses,id_kecamatan,created_at,updated_at) VALUES ('$nama', '$username', '$encrypt_pass', '$penugasan', '$kecamatan', '$created_at', '$updated_at')");
     $query->execute();
 }
 
@@ -49,6 +49,8 @@ function tampil_data($mysqli)
                         </button>
                     </div>
                     <form action="" method="POST">
+                        <input type="hidden" name="id_operator" value="<?= $row->id_operator; ?>">
+                        <input type="hidden" name="token" value="<?= $token; ?>">
                         <div class="modal-body">
                             <div class="form-group">
                                 <label>Nama</label>
@@ -61,29 +63,40 @@ function tampil_data($mysqli)
                             <div class="form-group">
                                 <label>Penugasan</label>
                                 <div class="form-check">
-                                    <input class="form-check-input penugasan" type="radio" name="penugasan" value="kabupaten" <?php if ($row->akses == "kabupaten") { echo "checked"; } ?> />
+                                    <input class="form-check-input penugasan<?= $nomor; ?>" type="radio" name="penugasan" value="kabupaten" <?php if ($row->akses == "kabupaten") { echo "checked"; } ?> />
                                     <label class="form-check-label">Kabupaten</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input penugasan" type="radio" name="penugasan" value="kecamatan" <?php if ($row->akses == "kecamatan") { echo "checked"; } ?> />
+                                    <input class="form-check-input penugasan<?= $nomor; ?>" type="radio" name="penugasan" value="kecamatan" <?php if ($row->akses == "kecamatan") { echo "checked"; } ?> />
                                     <label class="form-check-label">Kecamatan</label>
                                 </div>
                                 <div class="form-check">
-                                    <input class="form-check-input penugasan" type="radio" name="penugasan" value="umum" <?php if ($row->akses == "umum") { echo "checked"; } ?> />
+                                    <input class="form-check-input penugasan<?= $nomor; ?>" type="radio" name="penugasan" value="umum" <?php if ($row->akses == "umum") { echo "checked"; } ?> />
                                     <label class="form-check-label">Umum</label>
                                 </div>  
                             </div>
-                            <div class="form-group mt-2" id="kecamatan<?= $nomor; ?>">
+                            <div class="form-group mt-2" id="kec<?= $nomor; ?>" style="display: none;">
                                 <label>Kecamatan</label>
-                                <select name="kecamatan" class="form-control">
-                                    <option>--Pilih-Kecamatan--</option>
-                                    
+                                <select name="id_kecamatan" class="form-control">
+                                    <option value="0">--Pilih-Kecamatan--</option>
+                                    <?php
+                                        $queryK = $mysqli->prepare("SELECT * FROM tb_kecamatan");
+                                        $queryK->execute();
+                                        $resultK = $queryK->get_result();
+                                        while ($rowK = $resultK->fetch_object()) {
+                                            if ($row->id_kecamatan === $rowK->id) {
+                                                echo"<option value='$rowK->id' selected>$rowK->nama_kecamatan</option>";
+                                            } else {
+                                                echo"<option value='$rowK->id'>$rowK->nama_kecamatan</option>";
+                                            }
+                                        }
+                                    ?>
                                 </select>
                             </div>
                         </div>
                         <div class="modal-footer justify-content-between">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                            <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>
+                            <button type="submit" name="update" class="btn btn-primary">Update</button>
                         </div>
                     </form>
                 </div>
@@ -97,18 +110,25 @@ function tampil_data($mysqli)
         <script src="<?= $base_url; ?>public/assets/plugins/jquery/jquery.min.js"></script>
         <script>
             $(document).ready(function() {
-                $('.penugasan').change(function (e) {
-                    e.preventDefault();
-                    
-                    if ($(this).is(":checked") && $(this).val() == "kecamatan") {
-                        $('#kecamatan<?= $nomor; ?>').show();
-                    } else if ($(this).is(":checked") && $(this).val() == "kabupaten") {
-                        $('#kecamatan<?= $nomor; ?>').hide();
-                    } else if ($(this).is(":checked") && $(this).val() == "umum") {
-                        $('#kecamatan<?= $nomor; ?>').hide();
-                    }
+               $('.penugasan<?= $nomor; ?>').filter(function() {
+                   if ($(this).is(":checked")) {
+                       if ($(this).val() == "kecamatan") {
+                           $('#kec<?= $nomor; ?>').show();
+                       } else {
+                           $('#kec<?= $nomor; ?>').hide();
+                       }
+                   }
+               });
 
-                });
+               $('.penugasan<?= $nomor; ?>').change(function() {
+                   if ($(this).is(":checked")) {
+                       if ($(this).val() == "kecamatan") {
+                           $('#kec<?= $nomor; ?>').show();
+                       } else {
+                           $('#kec<?= $nomor; ?>').hide();
+                       }
+                   }
+               });
             });
         </script>
 <?php
@@ -120,5 +140,11 @@ function tampil_data($mysqli)
 function hapus($id_operator, $mysqli)
 {
     $query = $mysqli->prepare("DELETE FROM tb_operator WHERE id_operator=$id_operator");
+    $query->execute();
+}
+
+function update($id_operator, $nama, $username, $penugasan, $id_kecamatan, $updated_at, $mysqli)
+{
+    $query = $mysqli->prepare("UPDATE tb_operator SET nama_operator='$nama',username='$username',akses='$penugasan',id_kecamatan='$id_kecamatan',updated_at='$updated_at' WHERE id_operator='$id_operator'");
     $query->execute();
 }

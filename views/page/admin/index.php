@@ -8,7 +8,13 @@
     } else if (isset($_GET['views_admin']) && $_GET['views_admin'] == "data_kecamatan") {
         $title = 'Data Kecamatan';
         $pageTitle = 'Data Kecamatan';
-    }else {
+    } else if (isset($_GET['views_admin']) && $_GET['views_admin'] == "data_pendaftar_kecamatan") {
+        $title = 'Data Pendaftar | Kecamatan';
+        $pageTitle = 'Data Pendaftar | Kecamatan';
+    } else if (isset($_GET['views_admin']) && $_GET['views_admin'] == "data_pendaftar_umum") {
+        $title = 'Data Pendaftar | Umum';
+        $pageTitle = 'Data Pendaftar | Umum';
+    } else {
         $title = 'Beranda';
         $pageTitle = 'Beranda';
     }
@@ -28,6 +34,10 @@ include 'views/layout/admin/sidebar.php';
         include 'views/page/admin/data_operator.php';
     } else if (isset($_GET['views_admin']) && $_GET['views_admin'] == "data_kecamatan") {
         include 'views/page/admin/data_kecamatan.php'; 
+    } else if (isset($_GET['views_admin']) && $_GET['views_admin'] == "data_pendaftar_kecamatan" ) {
+        include 'views/page/admin/pendaftar_kecamatan.php'; 
+    } else if (isset($_GET['views_admin']) && $_GET['views_admin'] == "data_pendaftar_umum" ) {
+        include 'views/page/admin/pendaftar_umum.php'; 
     } else {
         include 'views/page/admin/admin_beranda.php';
     }

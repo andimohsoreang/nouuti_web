@@ -45,7 +45,7 @@
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                                 <tr class="text-sm">
-                                    <th>No</th>
+                                    <th width="5%">No</th>
                                     <th>Nama</th>
                                     <th>Username</th>
                                     <th>Penugasan</th>
