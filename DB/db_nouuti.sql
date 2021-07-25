@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 17, 2021 at 07:48 PM
+-- Generation Time: Jul 25, 2021 at 05:57 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -81,9 +81,19 @@ CREATE TABLE `tb_operator` (
   `nama_operator` varchar(100) NOT NULL,
   `username` varchar(30) NOT NULL,
   `pass` varchar(80) NOT NULL,
-  `akses` tinyint(4) NOT NULL,
-  `id_kecamatan` int(11) NOT NULL
+  `akses` varchar(10) NOT NULL,
+  `id_kecamatan` int(11) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_operator`
+--
+
+INSERT INTO `tb_operator` (`id_operator`, `nama_operator`, `username`, `pass`, `akses`, `id_kecamatan`, `created_at`, `updated_at`) VALUES
+(12, 'Arif Rahman Supu', 'arifsupu', '$2y$10$kRMtL5MuAcpNjQG/my7COOSZclahoBup.Coei6n4lB1JKtMiaISbO', 'kecamatan', 13, '2021-07-25 15:43:54', '2021-07-25 15:44:09'),
+(13, 'Andi Moh Soreang', 'andimoh', '$2y$10$24VItcLOycNmAcQsEP4cue8kROsztSTfc96i1s.Gm19ceQ1oe2ceW', 'umum', 0, '2021-07-25 15:44:52', '2021-07-25 15:44:52');
 
 -- --------------------------------------------------------
 
@@ -217,13 +227,13 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_kecamatan`
 --
 ALTER TABLE `tb_kecamatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tb_operator`
 --
 ALTER TABLE `tb_operator`
-  MODIFY `id_operator` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_operator` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `tb_peserta`
