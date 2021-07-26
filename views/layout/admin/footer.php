@@ -16,6 +16,8 @@
 <script src="<?= $base_url; ?>public/assets/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="<?= $base_url; ?>public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="<?= $base_url; ?>public/assets/plugins/select2/js/select2.full.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?= $base_url; ?>public/assets/plugins/moment/moment.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
@@ -50,11 +52,11 @@
                         <select id="id_kecamatan" name="kecamatan" class="form-control">
                             <option>--Pilih-Kecamatan--</option>
                             <?php
-                                $query = $mysqli->prepare("SELECT * FROM tb_kecamatan");
-                                $query->execute();
-                                $result = $query->get_result();
-                                while ($row = $result->fetch_object()) {
-                                    echo"<option value='$row->id'>$row->nama_kecamatan</option>";
+                                $query99 = $mysqli->prepare("SELECT * FROM tb_kecamatan");
+                                $query99->execute();
+                                $result99 = $query99->get_result();
+                                while ($row99 = $result99->fetch_object()) {
+                                    echo"<option value='$row99->id'>$row99->nama_kecamatan</option>";
                                 }
                             ?>
                         </select>
@@ -73,6 +75,10 @@
             });
         }, 2000);
     });
+</script>
+<script>
+    //Initialize Select2 Elements
+    $('.select2').select2();
 </script>
 </body>
 

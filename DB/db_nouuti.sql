@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2021 at 05:57 PM
+-- Generation Time: Jul 25, 2021 at 10:25 PM
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.14
 
@@ -104,9 +104,10 @@ INSERT INTO `tb_operator` (`id_operator`, `nama_operator`, `username`, `pass`, `
 CREATE TABLE `tb_peserta` (
   `id_peserta` int(11) NOT NULL,
   `nama_lengkap` varchar(100) DEFAULT NULL,
-  `nama_panggilan` varchar(10) DEFAULT NULL,
-  `id_provinsi` int(11) DEFAULT NULL,
+  `nama_panggilan` varchar(15) DEFAULT NULL,
+  `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
+  `domisili` int(11) NOT NULL,
   `umur` int(11) DEFAULT NULL,
   `jk` tinyint(4) DEFAULT NULL,
   `tinggi` int(11) DEFAULT NULL,
@@ -121,11 +122,14 @@ CREATE TABLE `tb_peserta` (
   `ig` varchar(30) DEFAULT NULL,
   `fb` varchar(50) DEFAULT NULL,
   `pendidikan_terakhir` varchar(10) DEFAULT NULL,
+  `prestasi` text NOT NULL,
   `keahlian` varchar(100) DEFAULT NULL,
+  `keahlian_lainnya` varchar(100) NOT NULL,
   `motivasi` text DEFAULT NULL,
   `perwakilan` tinyint(4) DEFAULT NULL,
   `nama_perwakilan` varchar(255) DEFAULT NULL,
-  `foto` varchar(80) DEFAULT NULL
+  `foto` varchar(80) DEFAULT NULL,
+  `foto_fullbody` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
