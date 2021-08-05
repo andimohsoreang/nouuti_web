@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 25, 2021 at 10:25 PM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 7.4.14
+-- Generation Time: Aug 05, 2021 at 06:14 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 7.4.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -109,7 +109,7 @@ CREATE TABLE `tb_peserta` (
   `tgl_lahir` date DEFAULT NULL,
   `domisili` int(11) NOT NULL,
   `umur` int(11) DEFAULT NULL,
-  `jk` tinyint(4) DEFAULT NULL,
+  `jk` varchar(20) DEFAULT NULL,
   `tinggi` int(11) DEFAULT NULL,
   `berat` int(11) DEFAULT NULL,
   `ukuran_baju` varchar(4) DEFAULT NULL,
@@ -131,6 +131,13 @@ CREATE TABLE `tb_peserta` (
   `foto` varchar(80) DEFAULT NULL,
   `foto_fullbody` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_peserta`
+--
+
+INSERT INTO `tb_peserta` (`id_peserta`, `nama_lengkap`, `nama_panggilan`, `tempat_lahir`, `tgl_lahir`, `domisili`, `umur`, `jk`, `tinggi`, `berat`, `ukuran_baju`, `ukuran_celana`, `ukuran_sepatu`, `alamat`, `no_hp`, `email`, `pass`, `ig`, `fb`, `pendidikan_terakhir`, `prestasi`, `keahlian`, `keahlian_lainnya`, `motivasi`, `perwakilan`, `nama_perwakilan`, `foto`, `foto_fullbody`) VALUES
+(27, 'andi soreang', 'andi', 'Proident vitae dolo', '1979-01-24', 26, 19, 'Laki-laki', 165, 66, 'M', '35', '32', 'limboto', '09987645678', 'andi@mailinator.com', '12345', 'andi_ig', 'andi_fb', 'smkn 1 lim', 'Dolor animi quod ve,Sint nulla in ea fug,Modi enim reprehende', 'Menyanyi,Bermain Alat Musik', '-', 'In labore hic pariat', 16, 'esek esek', '1628177350.4101610c03c664220.png', '1628177350.4219610c03c66703d.jpg');
 
 -- --------------------------------------------------------
 
@@ -231,7 +238,7 @@ ALTER TABLE `tb_admin`
 -- AUTO_INCREMENT for table `tb_kecamatan`
 --
 ALTER TABLE `tb_kecamatan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tb_operator`
@@ -243,7 +250,7 @@ ALTER TABLE `tb_operator`
 -- AUTO_INCREMENT for table `tb_peserta`
 --
 ALTER TABLE `tb_peserta`
-  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
 
 --
 -- AUTO_INCREMENT for table `tb_provinsi`
