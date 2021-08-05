@@ -55,7 +55,9 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                
+                                 <?php
+                                tampil_data($mysqli); 
+                                ?>
                             </tbody>
                         </table>
                     </div>
