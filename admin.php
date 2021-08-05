@@ -22,4 +22,5 @@ if (isset($_SESSION['unique_user']) && $_SESSION['type_user'] != "admin") {
 }
 
 include 'app/env.php';
+include 'app/controller/admin/cek_token.php';
 include 'views/page/admin/index.php';
