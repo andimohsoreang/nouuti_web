@@ -18,6 +18,9 @@
 <script src="<?= $base_url; ?>public/assets/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Select2 -->
 <script src="<?= $base_url; ?>public/assets/plugins/select2/js/select2.full.min.js"></script>
+<!-- SweetAlert2 -->
+<!-- SweetAlert2 -->
+<script src="<?= $base_url; ?>public/assets/plugins/sweetalert2/sweetalert2.min.js"></script>
 <!-- daterangepicker -->
 <script src="<?= $base_url; ?>public/assets/plugins/moment/moment.min.js"></script>
 <!-- Tempusdominus Bootstrap 4 -->
@@ -42,22 +45,24 @@
 
 <script>
     $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false
+        "responsive": true,
+        "lengthChange": false,
+        "autoWidth": false
     });
 </script>
 <script>
-    $('.penugasan').click(function () {
+    $('.penugasan').click(function() {
         const html = `<div class="form-group kecamatan mt-2">
                         <label for="id_kecamatan">Kecamatan</label>
                         <select id="id_kecamatan" name="kecamatan" class="form-control">
                             <option>--Pilih-Kecamatan--</option>
                             <?php
-                                $query99 = $mysqli->prepare("SELECT * FROM tb_kecamatan");
-                                $query99->execute();
-                                $result99 = $query99->get_result();
-                                while ($row99 = $result99->fetch_object()) {
-                                    echo"<option value='$row99->id'>$row99->nama_kecamatan</option>";
-                                }
+                            $query99 = $mysqli->prepare("SELECT * FROM tb_kecamatan");
+                            $query99->execute();
+                            $result99 = $query99->get_result();
+                            while ($row99 = $result99->fetch_object()) {
+                                echo "<option value='$row99->id'>$row99->nama_kecamatan</option>";
+                            }
                             ?>
                         </select>
                     </div>`;
@@ -74,6 +79,22 @@
                 $(this).remove();
             });
         }, 2000);
+    });
+
+    $(document).ready(function() {
+        $('#btnLogout').click(function() {
+            swal.fire({
+                title: "Apakah anda ingin keluar?",
+                showCancelButton: true,
+                confirmButtonColor: "#dc3545",
+                confirmButtonText: "Ya, keluar!",
+                cancelButtonText: "Batal"
+            }).then(function(result){
+                if (result.isConfirmed) {
+                    window.location.href = "<?= $base_url; ?>admin/logout";
+                }
+            });
+        });
     });
 </script>
 <script>

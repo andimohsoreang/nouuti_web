@@ -17,7 +17,7 @@
     <ul class="navbar-nav ml-auto">
         <!-- Logout Dropdown Menu -->
         <li class="nav-item dropdown">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="#" id="btnLogout">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
             </a>

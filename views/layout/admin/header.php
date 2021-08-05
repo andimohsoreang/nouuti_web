@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="<?= $base_url; ?>public/assets/plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css">
     <!-- iCheck -->
     <link rel="stylesheet" href="<?= $base_url; ?>public/assets/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="<?= $base_url; ?>public/assets/plugins/sweetalert2/sweetalert2.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?= $base_url; ?>public/assets/dist/css/adminlte.css">
     <!-- overlayScrollbars -->
