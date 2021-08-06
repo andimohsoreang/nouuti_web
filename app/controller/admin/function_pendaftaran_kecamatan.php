@@ -1,14 +1,10 @@
 <?php
 
-error_reporting(0);
-
 function simpan($nama_lengkap,$nama_panggilan,$tempat_lahir,$tanggal_lahir,$domisili,$umur,$jenis_kelamin,$tinggi,$berat,$ukuran_baju,$ukuran_celana,$ukuran_sepatu,$alamat,$nohp,$email,$ig,$fb,$pd_terakhir,$prestasi_gabung,$keahlian_check,$keahlian_lainnya,$motivasi,$perwakilan,$nama_perwakilan,$foto,$foto_fullbody,$mysqli)
 {
-    $query = $mysqli->prepare("INSERT INTO tb_peserta (id_peserta,nama_lengkap,nama_panggilan,tempat_lahir,tgl_lahir,domisili,umur,jk,tinggi,berat,ukuran_baju,ukuran_celana,ukuran_sepatu,alamat,no_hp,email,pass,ig,fb,pendidikan_terakhir,prestasi,keahlian,keahlian_lainnya,motivasi,perwakilan,nama_perwakilan,foto,foto_fullbody) VALUES ('','$nama_lengkap','$nama_panggilan','$tempat_lahir','$tanggal_lahir','$domisili','$umur','$jenis_kelamin','$tinggi','$berat','$ukuran_baju','$ukuran_celana','$ukuran_sepatu','$alamat','$nohp','$email','12345','$ig','$fb','$pd_terakhir','$prestasi_gabung','$keahlian_check','$keahlian_lainnya','$motivasi','$perwakilan','$nama_perwakilan','$foto','$foto_fullbody')");
+    $query = $mysqli->prepare("INSERT INTO tb_peserta (nama_lengkap,nama_panggilan,tempat_lahir,tgl_lahir,domisili,umur,jk,tinggi,berat,ukuran_baju,ukuran_celana,ukuran_sepatu,alamat,no_hp,email,pass,ig,fb,pendidikan_terakhir,prestasi,keahlian,keahlian_lainnya,motivasi,perwakilan,nama_perwakilan,foto,foto_fullbody) VALUES ('$nama_lengkap','$nama_panggilan','$tempat_lahir','$tanggal_lahir','$domisili','$umur','$jenis_kelamin','$tinggi','$berat','$ukuran_baju','$ukuran_celana','$ukuran_sepatu','$alamat','$nohp','$email','12345','$ig','$fb','$pd_terakhir','$prestasi_gabung','$keahlian_check','$keahlian_lainnya','$motivasi','$perwakilan','$nama_perwakilan','$foto','$foto_fullbody')");
     $query->execute();
-
 }
-
 
 function tampil_data($mysqli)
 {

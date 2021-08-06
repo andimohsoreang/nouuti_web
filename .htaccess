@@ -15,10 +15,10 @@ RewriteRule ^admin/data/provinsi$ admin.php?views_admin=data_provinsi&
 RewriteRule ^admin/data/kecamatan$ admin.php?views_admin=data_kecamatan
 RewriteRule ^admin/data/operator$ admin.php?views_admin=data_operator
 
-RewriteRule ^data_pendaftar_kecamatan$ admin.php?views_admin=data_pendaftar_kecamatan
-RewriteRule ^create_peserta_kecamatan$ admin.php?views_admin=create_peserta_kecamatan
+RewriteRule ^admin/pendaftar/kecamatan$ admin.php?views_admin=data_pendaftar_kecamatan
+RewriteRule ^admin/pendaftar/kecamatan/create$ admin.php?views_admin=create_peserta_kecamatan
 
-RewriteRule ^data_pendaftar_umum$ admin.php?views_admin=data_pendaftar_umum
+RewriteRule ^admin/data/pendaftar/umum$ admin.php?views_admin=data_pendaftar_umum
 
 
 RewriteRule ^operator/login$ login_operator.php

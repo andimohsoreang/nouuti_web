@@ -10,8 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><small>Master Data</small></li>
-                    <li class="breadcrumb-item active"><small><?= $pageTitle; ?></small></li>
+                    <li class="breadcrumb-item"><small>Pendaftar Kecamatan</small></li>
                 </ol>
             </div>
         </div>
@@ -38,7 +37,7 @@
                     <div class="card-header">
                         <h3 class="card-title mt-1">Daftar Peserta</h3>
                         <div class="float-right">
-                            <a href="create_peserta_kecamatan" class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i> Create Peserta</a>
+                            <a href="<?= $base_url; ?>admin/pendaftar/kecamatan/create" class="btn btn-sm btn-primary"><i class="fas fa-plus-circle"></i> Create Peserta</a>
                         </div>
                     </div>
                     <div class="card-body">
@@ -56,7 +55,7 @@
                             </thead>
                             <tbody>
                                  <?php
-                                tampil_data($mysqli); 
+                                    tampil_data($mysqli); 
                                 ?>
                             </tbody>
                         </table>

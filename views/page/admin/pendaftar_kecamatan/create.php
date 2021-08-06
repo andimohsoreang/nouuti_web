@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><small>Master Data</small></li>
+                    <li class="breadcrumb-item"><a href="<?= $base_url; ?>admin/pendaftar/kecamatan"><small>Pendaftar Kecamatan</small></a></li>
                     <li class="breadcrumb-item active"><small><?= $pageTitle; ?></small></li>
                 </ol>
             </div>
@@ -38,7 +38,7 @@
 
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title"><a href="data_pendaftar_kecamatan"><i class="fas fa-arrow-circle-left"></i></a>&nbsp; Daftar Peserta</h3>
+                        <h3 class="card-title"><a href="<?= $base_url; ?>admin/pendaftar/kecamatan"><i class="fas fa-arrow-circle-left"></i></a>&nbsp; Form Pendaftaran Peserta</h3>
                     </div>
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div class="card-body">
@@ -149,14 +149,14 @@
                                     <div class="form-group">
                                         <label class="text-sm">Ukuran Celana</label>
                                         <br>
-                                        <input type="text" name="ukuran_celana" class="form-control" />
+                                        <input type="number" name="ukuran_celana" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4">
                                     <div class="form-group">
                                         <label class="text-sm">Ukuran Sepatu</label>
                                         <br>
-                                        <input type="text" name="ukuran_sepatu" class="form-control" />
+                                        <input type="number" name="ukuran_sepatu" class="form-control" />
                                     </div>
                                 </div>
                             </div>
@@ -172,7 +172,7 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text text-sm"><i class="fas fa-phone-alt"></i></span>
                                             </div>
-                                            <input type="text" name="nohp" class="form-control" />
+                                            <input type="number" name="nohp" class="form-control" />
                                         </div>
                                     </div>
                                 </div>

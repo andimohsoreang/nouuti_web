@@ -36,7 +36,6 @@ if(isset($_POST['simpan'])){
 
     simpan($nama_lengkap,$nama_panggilan,$tempat_lahir,$tanggal_lahir,$domisili,$umur,$jenis_kelamin,$tinggi,$berat,$ukuran_baju,$ukuran_celana,$ukuran_sepatu,$alamat,$nohp,$email,$ig,$fb,$pd_terakhir,$prestasi_gabung,$keahlian_check,$keahlian_lainnya,$motivasi,$perwakilan,$nama_perwakilan,$foto,$foto_fullbody,$mysqli);
     flash('success', 'Pendaftaran Kecamatan berhasil disimpan');
-
 }
 
 if(isset($_POST['hapus'])){
@@ -44,6 +43,5 @@ if(isset($_POST['hapus'])){
     hapus($id,$mysqli);
     flash('success', 'Data Kecamatan berhasil dihapus!');
 }
-
 
 ?>
