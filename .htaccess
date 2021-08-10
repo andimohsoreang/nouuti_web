@@ -6,23 +6,21 @@ Options +FollowSymLinks
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
+# Admin
 RewriteRule ^admin/login$ login_admin.php
 RewriteRule ^admin/logout$ logout_admin.php
 RewriteRule ^admin$ admin.php
 RewriteRule ^admin/beranda$ admin.php?views_admin=admin_beranda
-
-RewriteRule ^admin/data/provinsi$ admin.php?views_admin=data_provinsi&
+RewriteRule ^admin/data/provinsi$ admin.php?views_admin=data_provinsi
 RewriteRule ^admin/data/kecamatan$ admin.php?views_admin=data_kecamatan
 RewriteRule ^admin/data/operator$ admin.php?views_admin=data_operator
-
 RewriteRule ^admin/pendaftar/kecamatan$ admin.php?views_admin=data_pendaftar_kecamatan
 RewriteRule ^admin/pendaftar/kecamatan/create$ admin.php?views_admin=create_peserta_kecamatan
-
+RewriteRule ^admin/pendaftar/kecamatan/([0-9]*)/([a-z]*)$ admin.php?views_admin=detail_pendaftar_kecamatan&user=$1&action=$2
 RewriteRule ^admin/data/pendaftar/umum$ admin.php?views_admin=data_pendaftar_umum
 
-
+# Operator
 RewriteRule ^operator/login$ login_operator.php
-
 
 RewriteRule ^([A-Za-z0-9-]+)$ admin.php?views_admin=$1
 

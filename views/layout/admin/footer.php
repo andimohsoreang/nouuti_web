@@ -40,6 +40,8 @@
 <script src="<?= $base_url; ?>public/assets/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="<?= $base_url; ?>public/assets/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="<?= $base_url; ?>public/assets/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- Lightbox -->
+<script src="<?= $base_url; ?>public/assets/dist/js/lightbox.min.js"></script>
 <!-- AdminLTE App -->
 <script src="<?= $base_url; ?>public/assets/dist/js/adminlte.js"></script>
 
@@ -94,6 +96,15 @@
                     window.location.href = "<?= $base_url; ?>admin/logout";
                 }
             });
+        });
+    });
+
+    $(document).ready(function() {
+        $('.tglLahir').change(function() {
+            let dob = new Date(this.value);
+            let today = new Date();
+            let age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+            $('.autoUmur').val(age);
         });
     });
 </script>

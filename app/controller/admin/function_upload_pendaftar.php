@@ -10,7 +10,7 @@ function upload_foto()
         if($error === 4) {
             echo "
                 <script>
-                    alert('pilih gambar terlebih dahulu');
+                    alert('pilih foto terlebih dahulu');
                 </script>
             ";
             return false;
@@ -23,7 +23,7 @@ function upload_foto()
         if(!in_array($extensiGambar, $extensiGambarValid)) {
             echo "
                 <script>
-                    alert('yang anda upload bukan gambar!');
+                    alert('yang anda upload bukan foto!');
                 </script>
             ";
             return false;
@@ -33,7 +33,7 @@ function upload_foto()
         if($ukuranFile > 2000000) {
             echo "
                 <script>
-                    alert('ukuran gambar terlalu besar!');
+                    alert('ukuran foto terlalu besar!');
                 </script>
             ";
             return false;
@@ -60,7 +60,7 @@ function upload_foto_fullbody()
         if($error === 4) {
             echo "
                 <script>
-                    alert('pilih gambar terlebih dahulu');
+                    alert('pilih foto full body terlebih dahulu');
                 </script>
             ";
             return false;
@@ -73,7 +73,7 @@ function upload_foto_fullbody()
         if(!in_array($extensiGambar, $extensiGambarValid)) {
             echo "
                 <script>
-                    alert('yang anda upload bukan gambar!');
+                    alert('yang anda upload bukan foto!');
                 </script>
             ";
             return false;
@@ -83,7 +83,7 @@ function upload_foto_fullbody()
         if($ukuranFile > 2000000) {
             echo "
                 <script>
-                    alert('ukuran gambar terlalu besar!');
+                    alert('ukuran foto full body terlalu besar!');
                 </script>
             ";
             return false;
@@ -98,6 +98,3 @@ function upload_foto_fullbody()
         move_uploaded_file($tmpName, 'public/assets/dist/img/foto_fullbody/' . $namaFileBaru);
         return $namaFileBaru;
     }
-
-
-?>

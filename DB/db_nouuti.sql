@@ -2,8 +2,8 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 05, 2021 at 06:14 PM
+-- Host: localhost
+-- Generation Time: Aug 10, 2021 at 06:52 AM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 7.4.21
 
@@ -33,6 +33,13 @@ CREATE TABLE `tb_admin` (
   `username` varchar(30) NOT NULL,
   `pass` varchar(80) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_admin`
+--
+
+INSERT INTO `tb_admin` (`id_admin`, `nama_admin`, `username`, `pass`) VALUES
+(1, 'Buldoser', 'buldoser', '$2y$10$gzE.B6hK0nJNmlGrR1XRsOEujwr/xiqtFJJTOYFDzIvW3CmcteIuy');
 
 -- --------------------------------------------------------
 
@@ -103,41 +110,45 @@ INSERT INTO `tb_operator` (`id_operator`, `nama_operator`, `username`, `pass`, `
 
 CREATE TABLE `tb_peserta` (
   `id_peserta` int(11) NOT NULL,
-  `nama_lengkap` varchar(100) DEFAULT NULL,
-  `nama_panggilan` varchar(15) DEFAULT NULL,
+  `nama_lengkap` varchar(255) DEFAULT NULL,
+  `nama_panggilan` varchar(100) DEFAULT NULL,
   `tempat_lahir` varchar(100) DEFAULT NULL,
   `tgl_lahir` date DEFAULT NULL,
-  `domisili` int(11) NOT NULL,
+  `domisili` int(11) DEFAULT NULL,
   `umur` int(11) DEFAULT NULL,
   `jk` varchar(20) DEFAULT NULL,
   `tinggi` int(11) DEFAULT NULL,
   `berat` int(11) DEFAULT NULL,
   `ukuran_baju` varchar(4) DEFAULT NULL,
-  `ukuran_celana` varchar(4) DEFAULT NULL,
-  `ukuran_sepatu` varchar(4) DEFAULT NULL,
+  `ukuran_celana` int(11) DEFAULT NULL,
+  `ukuran_sepatu` int(11) DEFAULT NULL,
   `alamat` text DEFAULT NULL,
   `no_hp` varchar(13) DEFAULT NULL,
   `email` varchar(125) DEFAULT NULL,
   `pass` varchar(80) DEFAULT NULL,
-  `ig` varchar(30) DEFAULT NULL,
-  `fb` varchar(50) DEFAULT NULL,
-  `pendidikan_terakhir` varchar(10) DEFAULT NULL,
-  `prestasi` text NOT NULL,
+  `ig` varchar(100) DEFAULT NULL,
+  `fb` varchar(100) DEFAULT NULL,
+  `pendidikan_terakhir` varchar(100) DEFAULT NULL,
+  `prestasi` text DEFAULT NULL,
   `keahlian` varchar(100) DEFAULT NULL,
-  `keahlian_lainnya` varchar(100) NOT NULL,
+  `keahlian_lainnya` varchar(100) DEFAULT NULL,
   `motivasi` text DEFAULT NULL,
-  `perwakilan` tinyint(4) DEFAULT NULL,
+  `perwakilan` int(11) DEFAULT NULL,
   `nama_perwakilan` varchar(255) DEFAULT NULL,
   `foto` varchar(80) DEFAULT NULL,
-  `foto_fullbody` varchar(80) NOT NULL
+  `foto_fullbody` varchar(80) DEFAULT NULL,
+  `created_by` varchar(100) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tb_peserta`
 --
 
-INSERT INTO `tb_peserta` (`id_peserta`, `nama_lengkap`, `nama_panggilan`, `tempat_lahir`, `tgl_lahir`, `domisili`, `umur`, `jk`, `tinggi`, `berat`, `ukuran_baju`, `ukuran_celana`, `ukuran_sepatu`, `alamat`, `no_hp`, `email`, `pass`, `ig`, `fb`, `pendidikan_terakhir`, `prestasi`, `keahlian`, `keahlian_lainnya`, `motivasi`, `perwakilan`, `nama_perwakilan`, `foto`, `foto_fullbody`) VALUES
-(27, 'andi soreang', 'andi', 'Proident vitae dolo', '1979-01-24', 26, 19, 'Laki-laki', 165, 66, 'M', '35', '32', 'limboto', '09987645678', 'andi@mailinator.com', '12345', 'andi_ig', 'andi_fb', 'smkn 1 lim', 'Dolor animi quod ve,Sint nulla in ea fug,Modi enim reprehende', 'Menyanyi,Bermain Alat Musik', '-', 'In labore hic pariat', 16, 'esek esek', '1628177350.4101610c03c664220.png', '1628177350.4219610c03c66703d.jpg');
+INSERT INTO `tb_peserta` (`id_peserta`, `nama_lengkap`, `nama_panggilan`, `tempat_lahir`, `tgl_lahir`, `domisili`, `umur`, `jk`, `tinggi`, `berat`, `ukuran_baju`, `ukuran_celana`, `ukuran_sepatu`, `alamat`, `no_hp`, `email`, `pass`, `ig`, `fb`, `pendidikan_terakhir`, `prestasi`, `keahlian`, `keahlian_lainnya`, `motivasi`, `perwakilan`, `nama_perwakilan`, `foto`, `foto_fullbody`, `created_by`, `created_at`, `updated_at`) VALUES
+(46, 'Arif Supu', 'Xupu', 'Gorontalo', '2001-06-30', 25, 20, 'Laki-laki', 164, 70, 'S', 40, 44, 'Tabongo, Batudaa', '0834121212', 'arifsupu@gmail.com', '$2y$10$U.hPgzYbvVgIltEdUi/lr.RLP/61X2JKXyp.hDIBJ9sMiA58H7y2u', 'arif_xupu', 'Arif Supu', 'Sekolah Menegah Kejuruan (SMK)', 'Juara 3 Kompetisi Taekwondo Se-Tabongo', 'Public Speaking,Menyanyi,Sastra Lisan Gorontalo', 'Dolor nisi corporis ', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 10, 'SMB-Team', '1628484213.10046110b2751882d.jpg', '1628484213.10056110b27518880.jpg', 'buldoser', '2021-08-08 22:43:33', '2021-08-08 22:43:33'),
+(47, 'Ducimus aliquid nih', 'Tempore non omnis a', 'Corrupti ea cupidit', '2020-12-11', 30, 91, 'Laki-laki', 167, 56, 'M', 27, 15, 'In velit id totam o', '7', 'bepabil@mailinator.com', '$2y$10$YN1mt0R/6Cpnf4i.3K65ZucteWh9cU/7eyj/0i6kXguivyEBY9.kK', 'Voluptate blanditiis', 'Maxime eligendi a vo', 'Sed est nisi digniss', 'Non ea est qui commo', 'Public Speaking,Menyanyi', 'Voluptatem Ad volup', 'Non suscipit possimu', 11, 'Quia rerum perspicia', '1628486171.76026110ba1bb9993.jpg', '1628486171.76066110ba1bb9afe.jpg', 'buldoser', '2021-08-08 23:16:11', '2021-08-08 23:16:11');
 
 -- --------------------------------------------------------
 
@@ -190,6 +201,26 @@ INSERT INTO `tb_provinsi` (`id`, `nama_provinsi`) VALUES
 (33, 'Papua Barat'),
 (34, 'Papua');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tb_token_admin`
+--
+
+CREATE TABLE `tb_token_admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `token` varchar(80) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tb_token_admin`
+--
+
+INSERT INTO `tb_token_admin` (`id`, `username`, `token`, `time`) VALUES
+(1, 'buldoser', '6XfOAeKUE8', '2021-08-09 04:35:50');
+
 --
 -- Indexes for dumped tables
 --
@@ -225,6 +256,12 @@ ALTER TABLE `tb_provinsi`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `tb_token_admin`
+--
+ALTER TABLE `tb_token_admin`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -232,7 +269,7 @@ ALTER TABLE `tb_provinsi`
 -- AUTO_INCREMENT for table `tb_admin`
 --
 ALTER TABLE `tb_admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tb_kecamatan`
@@ -250,13 +287,19 @@ ALTER TABLE `tb_operator`
 -- AUTO_INCREMENT for table `tb_peserta`
 --
 ALTER TABLE `tb_peserta`
-  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_peserta` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `tb_provinsi`
 --
 ALTER TABLE `tb_provinsi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+
+--
+-- AUTO_INCREMENT for table `tb_token_admin`
+--
+ALTER TABLE `tb_token_admin`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

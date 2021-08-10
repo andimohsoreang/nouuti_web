@@ -1,5 +1,5 @@
 <?php
-    include 'app/controller/admin/post_pendaftar_kecamatan.php';
+include 'app/controller/admin/post_pendaftar_kecamatan.php';
 ?>
 
 <section class="content-header">
@@ -23,17 +23,17 @@
         <div class="row justify-content-center">
             <div class="col-md-12 col-lg-10">
 
-             <?php
-                    if (isset($_SESSION['success'])) {
-                ?>
-                        <div class="alert alert-success alert-dismissible fade show" role="alert">
-                            <span class="fas fa-check fe-16 mr-2"></span> <?= flash('success'); ?>
-                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
                 <?php
-                    }
+                if (isset($_SESSION['success'])) {
+                ?>
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        <span class="fas fa-check fe-16 mr-2"></span> <?= flash('success'); ?>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                <?php
+                }
                 ?>
 
                 <div class="card">
@@ -45,7 +45,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Nama Lengkap</label>
+                                        <label class="text-sm">Nama Lengkap <span class="text-danger">*</span></label>
                                         <input type="text" name="nama_lengkap" class="form-control" />
                                     </div>
                                 </div>
@@ -59,19 +59,19 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Tempat Lahir</label>
+                                        <label class="text-sm">Tempat Lahir <span class="text-danger">*</span></label>
                                         <input type="text" name="tempat_lahir" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Tanggal Lahir</label>
-                                        <input type="date" name="tanggal_lahir" class="form-control" />
+                                        <label class="text-sm">Tanggal Lahir <span class="text-danger">*</span></label>
+                                        <input type="date" name="tanggal_lahir" class="form-control tglLahir" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="text-sm">Domisili</label>
+                                <label class="text-sm">Domisili <span class="text-danger">*</span></label>
                                 <select name="domisili" class="form-control select2" style="width: 100%;">
                                     <option value="0" hidden>--Pilih Domisili--</option>
                                     <?php
@@ -91,7 +91,7 @@
                                     <div class="form-group">
                                         <label class="text-sm">Umur</label>
                                         <div class="input-group">
-                                            <input type="number" name="umur" class="form-control" />
+                                            <input type="number" name="umur" class="form-control autoUmur" />
                                             <div class="input-group-append">
                                                 <span class="input-group-text text-sm">Tahun</span>
                                             </div>
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Jenis Kelamin</label>
+                                        <label class="text-sm">Jenis Kelamin <span class="text-danger">*</span></label>
                                         <br>
                                         <div class="mt-1">
                                             <input type="radio" name="jenis_kelamin" id="Laki-laki" value="Laki-laki"> <label for="Laki-laki" class="text-sm" style="font-weight:normal;">Laki-laki</label>
@@ -112,7 +112,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Tinggi Badan</label>
+                                        <label class="text-sm">Tinggi Badan <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <input type="number" name="tinggi" class="form-control" />
                                             <div class="input-group-append">
@@ -123,7 +123,7 @@
                                 </div>
                                 <div class="col-sm-12 col-md-6 col-lg-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Berat Badan</label>
+                                        <label class="text-sm">Berat Badan <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <input type="number" name="berat" class="form-control" />
                                             <div class="input-group-append">
@@ -136,7 +136,7 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4">
                                     <div class="form-group">
-                                        <label class="text-sm">Ukuran Baju</label>
+                                        <label class="text-sm">Ukuran Baju <span class="text-danger">*</span></label>
                                         <br>
                                         <div class="mt-1">
                                             <input type="radio" name="ukuran_baju" id="S" value="S"> <label for="S" class="text-sm" style="font-weight:normal;">Small</label>
@@ -147,27 +147,27 @@
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4">
                                     <div class="form-group">
-                                        <label class="text-sm">Ukuran Celana</label>
+                                        <label class="text-sm">Ukuran Celana <span class="text-danger">*</span></label>
                                         <br>
                                         <input type="number" name="ukuran_celana" class="form-control" />
                                     </div>
                                 </div>
                                 <div class="col-sm-12 col-md-12 col-lg-12 col-xl-4">
                                     <div class="form-group">
-                                        <label class="text-sm">Ukuran Sepatu</label>
+                                        <label class="text-sm">Ukuran Sepatu <span class="text-danger">*</span></label>
                                         <br>
                                         <input type="number" name="ukuran_sepatu" class="form-control" />
                                     </div>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="text-sm">Alamat</label>
+                                <label class="text-sm">Alamat <span class="text-danger">*</span></label>
                                 <textarea name="alamat" class="form-control"></textarea>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Nomor Handphone</label>
+                                        <label class="text-sm">Nomor Handphone <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text text-sm"><i class="fas fa-phone-alt"></i></span>
@@ -178,27 +178,27 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Email</label>
+                                        <label class="text-sm">Email <span class="text-danger">*</span></label>
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text text-sm"><i class="far fa-envelope"></i></span>
                                             </div>
                                             <input type="email" name="email" class="form-control" />
                                         </div>
-                                    </div>     
+                                    </div>
                                 </div>
-        
+
                             </div>
                             <div class="form-group">
-                                <label class="text-sm">Sosial Media</label>
+                                <label class="text-sm">Sosial Media <span class="text-danger">*</span></label>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="input-group">
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text text-sm"><i class="fab fa-instagram"></i></span>
                                             </div>
-                                                <input type="text" name="ig" class="form-control" />
-                                        </div>  
+                                            <input type="text" name="ig" class="form-control" />
+                                        </div>
                                     </div>
                                     <br><br>
                                     <div class="col-md-6">
@@ -206,42 +206,22 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text text-sm"><i class="fab fa-facebook-square"></i></span>
                                             </div>
-                                                <input type="text" name="fb" class="form-control" />
-                                        </div>  
+                                            <input type="text" name="fb" class="form-control" />
+                                        </div>
                                     </div>
-                                </div>          
-                            </div> 
-                            
+                                </div>
+                            </div>
+
                             <div class="form-group">
-                                <label class="text-sm">Pendidikan Terakhir</label>
+                                <label class="text-sm">Pendidikan Terakhir <span class="text-danger">*</span></label>
                                 <input type="text" name="pd_terakhir" class="form-control" />
                             </div>
 
                             <div class="form-group">
                                 <label class="text-sm">Prestasi 3 Tahun Terakhir</label>
-                                    <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text text-sm">A.</span>
-                                            </div>
-                                            <input type="text" name="prestasi[]" class="form-control" />
-                                    </div>
-                                    <br>
-                                    <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text text-sm">B.</span>
-                                            </div>
-                                            <input type="text" name="prestasi[]" class="form-control" />
-                                    </div>
-                                    <br>
-                                    <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <span class="input-group-text text-sm">C.</span>
-                                            </div>
-                                            <input type="text" name="prestasi[]" class="form-control" />
-                                    </div> 
+                                <textarea name="prestasi" class="form-control"></textarea>
                             </div>
 
-                                
                             <div class="row">
                                 <div class="col-sm-8">
                                     <label class="text-sm">Keahlian</label>
@@ -269,7 +249,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    
+
                                     </div>
                                 </div>
 
@@ -280,34 +260,34 @@
                                     </div>
                                 </div>
                             </div>
-                                    
+
                             <div class="form-group">
-                                <label class="text-sm">Motivasi Menjadi Nou/Uti.</label>
+                                <label class="text-sm">Motivasi Menjadi Nou/Uti. <span class="text-danger">*</span></label>
                                 <textarea class="form-control" name="motivasi"></textarea>
                             </div>
-                            
+
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                    <label class="text-sm">Perwakilan</label>
-                                    <select name="perwakilan" class="form-control select2" style="width: 100%;">
-                                        <option value="0" hidden>--Pilih Kecamatan--</option>
-                                        <?php
-                                        $query = $mysqli->prepare("SELECT * FROM tb_kecamatan");
-                                        $query->execute();
-                                        $result = $query->get_result();
-                                        while ($row = $result->fetch_object()) {
-                                            echo "
+                                        <label class="text-sm">Perwakilan</label>
+                                        <select name="perwakilan" class="form-control select2" style="width: 100%;">
+                                            <option value="0" hidden>--Pilih Kecamatan--</option>
+                                            <?php
+                                            $query = $mysqli->prepare("SELECT * FROM tb_kecamatan");
+                                            $query->execute();
+                                            $result = $query->get_result();
+                                            while ($row = $result->fetch_object()) {
+                                                echo "
                                                     <option value='$row->id'>$row->nama_kecamatan</option>
                                                 ";
-                                        }
-                                        ?>
-                                    </select>
+                                            }
+                                            ?>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label class="text-sm">Nama Perwakilan</label>
+                                        <label class="text-sm">Nama Perwakilan <span class="text-danger">*</span></label>
                                         <input type="text" name="nama_perwakilan" class="form-control" />
                                     </div>
                                 </div>
@@ -318,24 +298,23 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="kt">Foto</label>
-                                        <input type="file"  name="foto" class="form-control-file">
-                                    </div>    
+                                        <label class="text-sm">Foto <span class="text-danger">*</span></label>
+                                        <input type="file" id="" name="foto" class="form-control-file">
+                                        <small>Ukuran Maximum File: 500kB</small>
+                                    </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="kt">Foto Full Body</label>
-                                        <input type="file"  name="foto_fullbody" class="form-control-file">
-                                    </div>   
+                                        <label class="text-sm">Foto Full Body <span class="text-danger">*</span></label>
+                                        <input type="file" name="foto_fullbody" class="form-control-file">
+                                        <small>Ukuran Maximum File: 500kB</small>
+                                    </div>
                                 </div>
-                            </div>            
+                            </div>
                             <!-- end uplod foto -->
 
                         </div>
                         <!-- end card body -->
-
-
-
                         <div class="card-footer">
                             <button type="reset" class="btn btn-secondary">Reset</button>
                             <button type="submit" name="simpan" class="btn btn-primary">Simpan</button>

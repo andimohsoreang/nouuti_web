@@ -1,5 +1,5 @@
 <?php
-    include 'app/controller/admin/post_pendaftar_kecamatan.php';
+    include 'app/controller/admin/function_pendaftar_kecamatan.php';
 ?>
 
 <section class="content-header">
@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                    <li class="breadcrumb-item"><small>Pendaftar Kecamatan</small></li>
+                    <li class="breadcrumb-item active"><small>Pendaftar Kecamatan</small></li>
                 </ol>
             </div>
         </div>
